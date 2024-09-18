@@ -1,0 +1,58 @@
+“System check up started”
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following upgrades have been deferred due to phasing:
+  ubuntu-pro-client ubuntu-pro-client-l10n
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+“System packages updated successfully”
+“-------------------------------------------”
+
+“Deleting unnecessary packages”
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+“-------------------------------------------”
+
+“Checking the Disc status”
+Filesystem                         Size  Used Avail Use% Mounted on
+tmpfs                              391M  2.0M  389M   1% /run
+efivarfs                           256K   25K  231K  10% /sys/firmware/efi/efivars
+/dev/mapper/ubuntu--vg-ubuntu--lv   30G   11G   18G  39% /
+tmpfs                              2.0G     0  2.0G   0% /dev/shm
+tmpfs                              5.0M  8.0K  5.0M   1% /run/lock
+/dev/vda2                          2.0G  202M  1.6G  12% /boot
+/dev/vda1                          1.1G  6.4M  1.1G   1% /boot/efi
+share                              229G  103G  126G  45% /media/HostShared
+tmpfs                              391M  140K  391M   1% /run/user/1000
+“-------------------------------------------”
+
+“Checking connected users”
+“Users currently connected”
+2 fredubuntu
+“-------------------------------------------”
+
+“Top 5 CPU consuming processes”
+
+    PID CMD                         %CPU %MEM
+  18273 /usr/libexec/tracker-extrac  4.3  0.7
+  17978 /usr/bin/nautilus --gapplic  3.4  5.7
+   2125 /usr/bin/gnome-shell         2.0 19.5
+   1191 containerd --config /run/sn  0.7  0.9
+   4884 /usr/libexec/gnome-terminal  0.1  1.4
+
+“Top 5 Memory consuming processes”
+
+    PID COMMAND         %CPU %MEM
+   2125 gnome-shell      2.0 19.5
+  17978 nautilus         3.4  5.7
+   2706 mutter-x11-fram  0.0  2.1
+   2634 gsd-xsettings    0.0  1.8
+   1142 dockerd          0.0  1.7
+
+“System check up completed”
