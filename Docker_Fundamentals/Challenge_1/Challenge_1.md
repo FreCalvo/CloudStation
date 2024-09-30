@@ -85,4 +85,4 @@ docker ps
 ```
 - Go to your browser, type localhost:8080. You should see what is shown in the _Verification image._
 
-#### [Verification image.]
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge_1/nginx_localhost8080.png)
