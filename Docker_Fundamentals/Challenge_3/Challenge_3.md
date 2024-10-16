@@ -43,7 +43,7 @@ version: '3.8'
 
 services:
   teemii-frontend:
-    image: dokkaner/teemii-frontend:develop
+    #image: dokkaner/teemii-frontend:develop
     build: ./app
     ports:
       - "8080:80"
@@ -54,9 +54,8 @@ services:
       - VITE_APP_PORT=80
 
   teemii-backend:
-    image: dokkaner/teemii-backend:develop
-    build:
-      context: ./server
+    #image: dokkaner/teemii-backend:develop
+    build: ./server
     volumes:
       - teemii-data:/data
     networks:
@@ -90,7 +89,18 @@ http://localhost:8080
 # Container teemii-teemii-backend-1  >> Started
 # Container teemii-teemii-frontend-1  >> Started  
 ```
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge_3/docker_compose_up_1.png)
+
+
 6. Stop and remove containers and network.
 ```
 docker compose down
 ```
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge_3/docker_compose_down.png)
+
+7. Run compose up again.
+```
+docker compose up -d
+# -d: to run in the background.
+```
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge_3/docker_compose_up_2.png)
