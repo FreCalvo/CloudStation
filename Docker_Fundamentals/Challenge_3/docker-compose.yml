@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   teemii-frontend:
-    image: dokkaner/teemii-frontend:develop
+    #image: dokkaner/teemii-frontend:develop
     build: ./app
     ports:
       - "8080:80"
@@ -13,9 +13,8 @@ services:
       - VITE_APP_PORT=80
 
   teemii-backend:
-    image: dokkaner/teemii-backend:develop
-    build:
-      context: ./server
+    #image: dokkaner/teemii-backend:develop
+    build: ./server
     volumes:
       - teemii-data:/data
     networks:
