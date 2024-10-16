@@ -30,8 +30,13 @@ of the container.
 
 ## Solution:
 
-### **Pull BE and FE images from Docker Repository**
-1. Create a Docker Network.
+### **Set everything up**
+1. Clone Teemii repository,
+```
+git clone https://github.com/dokkaner/teemii.git
+```
+
+2. Create a Docker Network.
     - This network will allow rhe containers to communicate with each other.
 ```
     docker network create teemii-network
@@ -44,7 +49,7 @@ docker network ls
 
 # teemii-network is in the list.
 ```
-2. Create Docker Volume.
+3. Create Docker Volume.
     - For persistent storage
 ```
     docker volume create teemii-data
@@ -57,33 +62,37 @@ docker volume list
 # It should display the Volume specifics:
 # DRIVER - VOLUME NAME
 ```
+<br>
 
-3. Pull Backend image.
-    - Pull the backend image from Dockerhub.
+### **Build and Run Backend.**
+- Go to <span style="color:gray"> server</span> directory.
 ```
-    docker pull dokkaner/teemii-backend:develop
+cd server
 ```
-4. Pull Frontend image.
-    - Pull the frontend image from Dockerhub.
+- Build the Teemii backend Docker image.
 ```
-    docker pull dokkaner/teemii-frontend:develop
-```
-- Check images were properly created.
-```
-docker images
+docker build -t teemii-backend:develop .
 
-# It should display the image specifics.
-# REPOSITORY-TAG-IMAGE ID-CREATED-SIZE
-
-# dokkaner/teemii-frontend is present.
-# dokkaner/teemii-backend is present.
+# This will create the image.
 ```
-### **Run Containers**
+
 - Run backend container connect it to 
 <span style="color:gray"> teemii-network</span> and link it to <span style="color:gray"> teemii-data</span>.
 ```
 docker run -d --name teemii-backend --network teemii-network -v teemii-data:/app/data dokkaner/teemii-backend:develop
+```
+<br>
 
+### **Build and Run Frontend.**
+
+- Go to <span style="color:gray"> app</span> directory.
+```
+cd ../app
+```
+- Build the Teemii frontend Docker image.
+```
+docker build -t teemii-frontend:develop .
+# This will create the image.
 ```
 - Run frontend container and connect it to 
 <span style="color:gray"> teemii-network</span>.
@@ -104,8 +113,25 @@ docker ps
 ```
 http://localhost:8080⁠
 ```
+- Image of localhost:8080
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge%20_2/docker_run_1.png)
+
+- Delete backend container.
+
+```
+docker rm <container id> --force
+```
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge%20_2/docker_rm_backend.png)
+
+-  Run back backend container.
+```
+ docker run -d --name teemii-backend --network teemii-network -v teemii-data:/app/data teemii-backend
+```
+
+#### [Verification image.](https://github.com/FreCalvo/CloudStation/blob/main/Docker_Fundamentals/Challenge%20_2/docker_run_2.png)
 
 ### **Stop containers Teemii**
+
 
 - To stop and remove containers.
 ```
@@ -116,5 +142,3 @@ docker stop teemii-backend
 docker rm teemii-frontend
 docker rm teemii-backend
 ```
-
-
