@@ -77,6 +77,10 @@ kubectl set image deployment/nginx-deployment nginx=nginx:1.27.1 -n cloudstation
 
 # Terminal indicates: deployment.apps/nginx-deployment image updated
 ```
+- Check the Pods status
+```
+kubectl get pods --watch -n cloudstation
+```
 ```
 NAME                                READY   STATUS              RESTARTS   AGE
 nginx-deployment-58869d8644-gvt45   0/1     ContainerCreating   0          4s
@@ -103,10 +107,7 @@ nginx-deployment-58869d8644-dd6px   1/1     Running   0          27s
 nginx-deployment-58869d8644-gvt45   1/1     Running   0          35s
 nginx-deployment-58869d8644-pv76k   1/1     Running   0          44s
 ```
-- Check the Pods status
-```
-kubectl get pods --watch -n cloudstation
-```
+
 
 #### **Check Revision History**
 - Check revision history of nginx-deployment.
