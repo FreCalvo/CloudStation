@@ -248,7 +248,7 @@ Address: 10.96.53.244
 ```
 - Demonstrate communication. Send HTTP request to `nginx-service` in `namespace-1`
 ```
-wget -qO- nginx-service.namespace-1.svc.cluster.local
+wget -qO- http://nginx-service.namespace-1
 ```
 ```
 <!DOCTYPE html>
@@ -277,6 +277,3 @@ Commercial support is available at
 </body>
 </html>
 ```
-
-[Communication proof](communication_test.png)
-
