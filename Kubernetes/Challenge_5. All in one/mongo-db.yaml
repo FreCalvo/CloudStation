@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todos-db
+spec:
+  selector:
+    matchLabels:
+      name: todos-db
+  template:
+    metadata:
+      labels:
+        name: todos-db
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+      - name: todos-db
+        image: mongo:4
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todos-db
+spec:
+  selector:
+    name: todos-db
+  ports:
+  - port: 27017
+    targetPort: 27017
+---

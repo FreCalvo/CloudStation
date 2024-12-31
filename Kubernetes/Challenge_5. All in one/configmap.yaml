@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-todo-app
+data:
+  STATS_QUEUE_URI: amqp://stats-queue
+  REDIS_HOST: stats-cache
+  REDIS_PORT: "6379"
+  MONGO_CONNECTION_STRING: mongodb://todos-db

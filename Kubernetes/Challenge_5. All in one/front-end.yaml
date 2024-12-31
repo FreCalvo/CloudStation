@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      name: frontend
+  template:
+    metadata:
+      labels:
+        name: frontend
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+      - name: frontend
+        image: glgelopfalcon/frontend-todo:v1
+        imagePullPolicy: Always
+        env:
+        - name: STATS_QUEUE_URI
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-todo-app
+              key: STATS_QUEUE_URI
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  selector:
+    name: frontend
+  ports:
+  - port: 80
+    targetPort: 80
+---
